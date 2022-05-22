@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react'
 import {AiOutlineMenu} from 'react-icons/ai'
-import {FiShoppingCart} from 'react-icons/fi'
-import {BsChatLeft} from 'react-icons/bs'
+import {BiEnvelope,BiShoppingBag} from 'react-icons/bi'
 import {RiNotification3Line} from 'react-icons/ri'
 import {MdKeyboardArrowDown} from 'react-icons/md'
 import {TooltipComponent} from '@syncfusion/ej2-react-popups'
@@ -50,28 +49,28 @@ const Navbar = () => {
       <NavButton 
         title="Menu" 
         customFunc={() => setActiveMenu((prevState)=> !prevState)}
-        color="blue"
+        color="black"
         icon={<AiOutlineMenu/>}
       />
       <div className='flex'>
       <NavButton 
         title="Cart" 
         customFunc={() => handleClick('cart')}
-        color="blue"
-        icon={<FiShoppingCart/>}
+        color="black"
+        icon={<BiShoppingBag/>}
       />
        <NavButton 
         title="Chat" 
         dotColor="#03C9D7"
         customFunc={() => handleClick('chat')}
-        color="blue"
-        icon={<BsChatLeft/>}
+        color="black"
+        icon={<BiEnvelope/>}
       />
       <NavButton 
         title="Notifications" 
         dotColor="#03C9D7"
         customFunc={() => handleClick('notification')}
-        color="blue"
+        color="black"
         icon={<RiNotification3Line/>}
       />
       <TooltipComponent content="Profile" position="BottomCenter">
