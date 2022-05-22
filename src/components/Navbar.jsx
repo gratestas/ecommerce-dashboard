@@ -74,7 +74,7 @@ const Navbar = () => {
         icon={<RiNotification3Line/>}
       />
       <TooltipComponent content="Profile" position="BottomCenter">
-        <div className='flex items-center gap-2 cursor-pointer p-1 hover:bg-light-gray rounded-lg' onClick={() =>handleClick('userProfile')}>
+        <div className='flex items-center gap-2 cursor-pointer ml-7 p-1 hover:bg-light-gray rounded-lg' onClick={() =>handleClick('userProfile')}>
           <img src={avatar} alt="user" className='rounded-full w-8 h-8' />
           <p>
             <span className='text-gray-400 text-14'>Hi, </span> {" "}
