@@ -19,15 +19,21 @@ const Ecommerce = () => {
               <p className='font-bold text-gray-400'> Earnings</p>
               <p className='text-2xl font-semibold text-black'>$58,294</p>
             </div>
+            <button
+              type="button"
+              style={{ backgroundColor: currentColor }}
+              className="text-2xl opacity-0.9 text-white hover:drop-shadow-xl rounded-full  p-4"
+            >
+              <BsCurrencyDollar />
+            </button>
           </div>
           <div className="mt-6">
             <Button 
-            color='white'
-            bgColor="blue"
-            text="Download"
-            borderRadius='10px'
-            size='md'
-            className=''/>
+              color='white'
+              bgColor={currentColor}
+              text="Download"
+              borderRadius='10px'
+            />
           </div>
         </div>
         <div className='flex m-3 flex-wrap justify-center gap-1 items-center'>
@@ -91,7 +97,15 @@ const Ecommerce = () => {
               </div>
 
               <div className="mt-5">
-                <SparkLine currentColor={currentColor} id="line-sparkLine" type="Line" height="80px" width="250px" data={SparklineAreaData} color={currentColor} />
+                <SparkLine 
+                  currentColor={currentColor} 
+                  id="line-sparkLine" 
+                  type="Line" 
+                  height="80px" 
+                  width="250px" 
+                  data={SparklineAreaData} 
+                  color={currentColor} 
+                />
               </div>
               <div className="mt-10">
                 <Button

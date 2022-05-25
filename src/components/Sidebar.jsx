@@ -15,7 +15,7 @@ const NORMAL_LINK = `${DEFAULT_LINK} text-gray-700 dark:text-gray-200 dark:hover
 const SCREEN_SIZE_900 = 900;
 
 const Sidebar = () => {
-  const {activeMenu,setActiveMenu, screenSize, setScreenSize} = useStateContext();
+  const {activeMenu,setActiveMenu, screenSize, setScreenSize, currentColor} = useStateContext();
 
   const handleCloseSideBar =() => {
     if(activeMenu && screenSize<= SCREEN_SIZE_900)
@@ -26,9 +26,10 @@ const Sidebar = () => {
       {activeMenu && (<>
         <div className='flex justify-between items-center'>
           <Link 
-          to='/' 
-          className='items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tigh dark:text-white text-slate-900'
-          onClick={handleCloseSideBar}>
+            to='/' 
+            className='items-center gap-3 ml-3 mt-4 flex text-xl font-extrabold tracking-tigh dark:text-white text-slate-900'
+            onClick={handleCloseSideBar}
+          >
             <SiShopware/> <span>BrandName</span>
           </Link>
           <TooltipComponent content='menu' position='BottomCenter'>
@@ -48,6 +49,9 @@ const Sidebar = () => {
                   to={`/${link.name}`}
                   key={link.name}
                   onClick={handleCloseSideBar}
+                  style={({isActive})=> ({
+                    backgroundColor: isActive?  currentColor : ''
+                  })}
                   className={({isActive})=> isActive ? ACTIVE_LINK : NORMAL_LINK}>
                     {link.icon} 
                     <span className='capitalize text-sm'>
