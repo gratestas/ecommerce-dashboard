@@ -15,7 +15,7 @@ import {ordersData, contextMenuItems, ordersGrid} from "../data/dummy"
 
 const Orders = () => {
   return (
-    <div className="m-2 md:10 p-2 md:p-10 bg-white rounded-3xl" >
+    <div className="container">
     <Header category="Page" title="Orders" />
     <GridComponent
       id="gridcomp"
