@@ -12,8 +12,8 @@ import {customersData, customersGrid} from "../data/dummy"
 
 const Customers = () => {
   return (
-    <div className='m-2 md:m-10 p-2 md:p-10 bg-white rounded-3xl'>
-      <Header categoty="Page" title="Customers"/>
+    <div className='container'>
+      <Header category="Page" title="Customers"/>
       <GridComponent
         dataSource={customersData}
         allowPaging

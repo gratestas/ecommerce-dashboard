@@ -14,7 +14,7 @@ import {employeesData, employeesGrid} from "../data/dummy"
 
 const Employees = () => {
   return (
-    <div className="m-2 md:10 p-2 md:p-10 bg-white rounded-3xl" >
+    <div className="container" >
     <Header category="Page" title="Employees" />
     <GridComponent
       dataSource={employeesData}
