@@ -14,17 +14,21 @@ export const ContexProvider = ({ children }) => {
   const [isClicked, setIsClicked] = useState(initialState);
   const [themeSettings, setThemeSettings] = useState(false);
   const [screenSize, setScreenSize] = useState(undefined);
-  const [currenMode, setCurrenMode] = useState("Light");
+  const [currentMode, setCurrentMode] = useState("Light");
   const [currentColor, setCurrentColor] = useState("#03C9D7");
 
   const setColor = (color) => {
     setCurrentColor(color);
     localStorage.setItem("colorMode", color);
+
+    setThemeSettings(false);
   };
 
   const setMode = (e) => {
-    setCurrenMode(e.target.value);
+    setCurrentMode(e.target.value);
     localStorage.setItem("themeMode", e.target.value);
+
+    setThemeSettings(false);
   };
 
   const handleClick = (clicked) =>
@@ -41,10 +45,8 @@ export const ContexProvider = ({ children }) => {
         setThemeSettings,
         screenSize,
         setScreenSize,
-        currenMode,
-        setCurrenMode,
+        currentMode,
         currentColor,
-        setCurrentColor,
         handleClick,
         setMode,
         setColor,
