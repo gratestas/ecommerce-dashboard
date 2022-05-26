@@ -1,15 +1,16 @@
-import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
-import App from "./App";
+import { BrowserRouter } from "react-router-dom";
+
 import { ContexProvider } from "./context/ContextProvider";
-import { UserContextProvider } from "./context/UserContext";
+import App from "./App";
+
+import "./index.css";
 
 ReactDOM.render(
-  <UserContextProvider>
-    <ContexProvider>
+  <ContexProvider>
+    <BrowserRouter>
       <App />
-    </ContexProvider>
-  </UserContextProvider>,
+    </BrowserRouter>
+  </ContexProvider>,
   document.getElementById("root")
 );
