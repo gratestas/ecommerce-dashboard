@@ -9,6 +9,7 @@ import avatar from '../data/avatar.jpg'
 import {Cart, Chat, Notification, UserProfile} from '.'
 
 import {useStateContext} from '../context/ContextProvider'
+import {useUserContext} from '../context/UserContext'
 
 const SCREEN_SIZE_900 = 900;
 
@@ -31,6 +32,8 @@ const Navbar = () => {
     setScreenSize,
     currentColor
   } = useStateContext();
+
+  const {user} = useUserContext();
 
   useEffect(() =>{
     const handleScreenResize = () => setScreenSize(window.innerWidth);
@@ -80,7 +83,7 @@ const Navbar = () => {
           <img src={avatar} alt="user" className='rounded-full w-8 h-8' />
           <p>
             <span className='text-gray-400 text-14'>Hi, </span> {" "}
-            <span className='text-gray-400 font-bold ml-1 text-14'>John</span>
+            <span className='text-gray-400 font-bold ml-1 text-14'>{user?.name}</span>
           </p>
           <MdKeyboardArrowDown className='text-gray-400 text-14' />
         </div>
