@@ -12,7 +12,7 @@ const Input = ({ name, label, onChange, half=false }) => {
       <input
         type={`${isPassword && !isVisible ? "password" : "text"}`}
         name={name}
-        onchange={onChange}
+        onChange={onChange}
         className=' w-full border rounded-lg p-3 border-gray-200 hover:border-gray-400 outline-none'
       />
       {isPassword && (

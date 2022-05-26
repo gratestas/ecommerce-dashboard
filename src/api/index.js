@@ -14,4 +14,12 @@ export const signUp = async (formData) => {
   return data; //data = { newUser, token}
 };
 
-export const signIn = async (formData) => {};
+export const signIn = async (formData) => {
+  const res = await fetch(`${baseUrl}/user/signin`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(formData),
+  });
+};
