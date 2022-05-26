@@ -21,7 +21,7 @@ export const signin = async (req, res) => {
     });
     res.status(200).json({ result: user, token });
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Something went wrong during sign in" });
   }
 };
 
@@ -44,7 +44,7 @@ export const signup = async (req, res) => {
     });
     res.status(200).json({ newUser, token });
   } catch (error) {
-    res.status(500).json({ message: "Something went wrong" });
+    res.status(500).json({ message: "Something went wrong durin sign up" });
     console.log(error);
   }
 };
