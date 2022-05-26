@@ -16,12 +16,12 @@ const Input = ({ name, label, onChange, half=false }) => {
         className=' w-full border rounded-lg p-3 border-gray-200 hover:border-gray-400 outline-none'
       />
       {isPassword && (
-      <button 
-        className='absolute text-xs right-4 bottom-4 font-semibold text-gray-400'
+      <div 
+        className='absolute text-xs right-4 bottom-4 font-semibold text-gray-400 cursor-pointer'
         onClick={() => setIsVisible((prevState) => !prevState)}
       >
         {isVisible ? "hide" : "show" }
-        </button>
+        </div>
       )}
       </div>
 
