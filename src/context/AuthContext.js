@@ -1,5 +1,5 @@
 import { createContext, useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import * as api from "../api/index";
 
 const AuthContext = createContext();
@@ -13,12 +13,13 @@ const initialState = {
 
 export const AuthProvider = ({ children }) => {
   const navigate = useNavigate();
-  //const location = useLocation();
+  const location = useLocation();
 
+  const userData = JSON.parse(localStorage.getItem("user"));
+  const [token, setToken] = useState(userData.token || null);
   const [user, setUser] = useState();
-  const [token, setToken] = useState(null);
 
-  // const origin = location.state?.from?.pathname || "/";
+  const origin = location.state?.from?.pathname || "/";
 
   const signup = async (formData) => {
     try {
@@ -26,7 +27,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem("user", JSON.stringify(data));
       setUser(data.newUser);
       setToken(data.token);
-      navigate("/");
+      navigate(origin);
     } catch (error) {
       console.log(error);
     }
@@ -34,10 +35,11 @@ export const AuthProvider = ({ children }) => {
 
   const signin = async (formData) => {
     try {
-      // const { data: user } = await api.signIn(formData);
-      // localStorage.setItem("user", JSON.stringify({ ...user }));
-      // setUser(user);
-      navigate("/");
+      const data = await api.signIn(formData);
+      localStorage.setItem("user", JSON.stringify(data));
+      setUser(data.user);
+      setToken(data.token);
+      navigate(origin);
     } catch (error) {
       console.log(error);
     }
@@ -46,6 +48,7 @@ export const AuthProvider = ({ children }) => {
   const signout = () => {
     setUser(null);
     setToken(null);
+    navigate("/auth");
   };
   return (
     <AuthContext.Provider
