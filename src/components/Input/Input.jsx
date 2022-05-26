@@ -1,17 +1,30 @@
-import React from "react";
+import {useState} from "react";
 
 const Input = ({ name, label, onChange, half=false }) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const isPassword = name === "password";
   return (
     <div className={`${half ? 'w-[48%]' : 'w-full'} flex flex-col mt-6`}>
       <label htmlFor={name} className="text-sm font-semibold mb-1 text-gray-700">
         {label}
       </label>
+      <div className='relative'>
       <input
-        type={`${name === "password"? "password" : "text"}`}
+        type={`${isPassword && !isVisible ? "password" : "text"}`}
         name={name}
         onchange={onChange}
         className=' w-full border rounded-lg p-3 border-gray-200 hover:border-gray-400 outline-none'
       />
+      {isPassword && (
+      <button 
+        className='absolute text-xs right-4 bottom-4 font-semibold text-gray-400'
+        onClick={() => setIsVisible((prevState) => !prevState)}
+      >
+        {isVisible ? "hide" : "show" }
+        </button>
+      )}
+      </div>
+
     </div>
   );
 };
