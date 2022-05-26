@@ -22,4 +22,7 @@ export const signIn = async (formData) => {
     },
     body: JSON.stringify(formData),
   });
+  const data = await res.json();
+  console.log("from signin api", data);
+  return data;
 };
