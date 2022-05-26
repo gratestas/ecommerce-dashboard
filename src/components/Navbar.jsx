@@ -9,7 +9,7 @@ import avatar from '../data/avatar.jpg'
 import {Cart, Chat, Notification, UserProfile} from '.'
 
 import {useStateContext} from '../context/ContextProvider'
-import {useUserContext} from '../context/UserContext'
+import {useAuth} from '../context/AuthContext'
 
 const SCREEN_SIZE_900 = 900;
 
@@ -33,7 +33,7 @@ const Navbar = () => {
     currentColor
   } = useStateContext();
 
-  const {user} = useUserContext();
+  const {user} = useAuth();
 
   useEffect(() =>{
     const handleScreenResize = () => setScreenSize(window.innerWidth);
