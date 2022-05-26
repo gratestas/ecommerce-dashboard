@@ -32,17 +32,19 @@ const Auth = () => {
           <h1 className="text-3xl xl:text-4xl font-bold tracking-tight mt-20 mb-2">{greeting}</h1>
           <h4 className="text-sm font-medium  mb-5 text-gray-500">{cta}</h4>
           <div className="flex flex-col flex-wrap  ">
-            {isSignup && (<div className="flex justify-between">
-            <Input name="firstName" label="First Name"  oncChange={handleChange} half/>
-            <Input name="lastName" label="Last Name"  oncChange={handleChange} half/>
-            </div>)}
-            <Input name="email" label="Email"  oncChange={handleChange}/>
-            <Input name="password" label="Password" oncChange={handleChange}/>
+            {isSignup && (
+              <div className="flex justify-between">
+              <Input name="firstName" label="First Name"  onChange={handleChange} half/>
+              <Input name="lastName" label="Last Name"  onChange={handleChange} half/>
+              </div>
+            )}
+            <Input name="email" label="Email"  onChange={handleChange}/>
+            <Input name="password" label="Password" onChange={handleChange}/>
           </div>
           <div className="flex justify-end mt-3 mb-6 text-sm font-semibold cursor-pointer">
             Forgot password
             </div>
-          <Button color="white" bgColor="black" borderRadius="10px" size="md" text={ isSignup ? "Sign up" : "Sing in"}/>
+          <Button type="submit" color="white" bgColor="black" borderRadius="10px" size="md" text={ isSignup ? "Sign up" : "Sing in"}/>
           <div className="flex justify-center mt-6 text-sm font-semibold text-gray-400">
           {isSignup ? "Already have an account?" :"Don't have an account?"}
           <span 
