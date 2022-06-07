@@ -1,4 +1,5 @@
-const baseUrl = "http://localhost:5000";
+const baseUrl =
+  "https://ecommerce-dashboard-git-backend-main-gratestas.vercel.app/";
 
 export const signUp = async (formData) => {
   const res = await fetch(`${baseUrl}/user/signup`, {
